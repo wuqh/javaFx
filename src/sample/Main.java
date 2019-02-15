@@ -17,7 +17,7 @@ public class Main extends Application {
 
     private Stage mainStage;
 
-    private Stage primaryStage;
+  
 
 
     /**
@@ -29,7 +29,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         mainStage = primaryStage;
         mainStage.setResizable(false);
-        this.primaryStage=primaryStage;
+     
         //设置窗口的图标.
         FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));//界面模板
         Parent root = loader.load();
