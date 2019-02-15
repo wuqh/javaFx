@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane prefHeight="876.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AddStudentController">
+   <children>
+
+      <Pane layoutX="8.0" layoutY="12.0" prefHeight="27.0" prefWidth="473.0">
+         <Label layoutX="5.0" layoutY="35.0" text="Name:" />
+         <TextField fx:id="sudent_name" layoutX="90.0" layoutY="30.0" />
+      </Pane>
+      <Pane layoutX="8.0" layoutY="99.0" prefHeight="50.0" prefWidth="514.0">
+         <Label layoutX="5.0" layoutY="15.0" text="Gender:" />
+         <RadioButton fx:id="female" layoutX="89.0" layoutY="15.0" mnemonicParsing="false" text="FeMale">
+            <toggleGroup>
+               <ToggleGroup fx:id="identity" />
+            </toggleGroup>
+         </RadioButton>
+         <RadioButton fx:id="male" layoutX="207.0" layoutY="15.0" mnemonicParsing="false" text="Male" toggleGroup="$identity" />
+      </Pane>
+
+      <Pane layoutX="8.0" layoutY="256.0" prefHeight="200.0" prefWidth="563.0">
+         <Label layoutX="5.0" layoutY="15.0" text="1st Subject's GPA:" />
+         <Slider fx:id="first_subject_gpa" onDragDone="#onDragDonePropertyFirstSliderGPA" showTickLabels="true"  showTickMarks="true" layoutX="150" layoutY="15"  max="100" min="0" />
+
+         <TextField fx:id="first_subject_gpa_value" layoutX="300.0" layoutY="15.0" prefWidth="50" />
+      </Pane>
+      <Pane layoutX="9.0" layoutY="386.0" prefHeight="50.0" prefWidth="563.0">
+         <JFXButton fx:id="btn_ok" buttonType="RAISED" layoutX="336.0" layoutY="20.0" mnemonicParsing="false" onAction="#OnOk" text="OK" />
+         <JFXButton fx:id="btn_cancel" buttonType="RAISED" layoutX="394.0" layoutY="20.0" mnemonicParsing="false" onAction="#OnCancel" text="Cancel" />
+      </Pane>
+
+
+
+   </children>
+</AnchorPane>

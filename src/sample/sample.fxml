@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="369.0" prefWidth="628.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+
+        <Label layoutX="159.0" layoutY="50.0" prefWidth="355.0" text="Group 4 Grouping Tool" textFill="black">
+            <font>
+                <Font name="System Bold Italic" size="29.0" />
+            </font>
+        </Label>
+        <Label layoutX="200.0" layoutY="155.0" text="Number of Students:" textFill="black">
+            <font>
+                <Font name="System Bold Italic" size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="106.0" layoutY="250.0" text="Press To Enter Students" textFill="black">
+            <font>
+                <Font name="System Bold Italic" size="15.0" />
+            </font>
+        </Label>
+        <JFXButton fx:id="btn_add" buttonType="RAISED" layoutX="120.0" layoutY="300.0" mnemonicParsing="false" onAction="#onAdd" prefHeight="15.0" prefWidth="100.0" text="Add Student" />
+
+        <JFXButton fx:id="btn_start" buttonType="RAISED" layoutX="250.0" layoutY="300.0" mnemonicParsing="false" onAction="#onStart" prefHeight="15.0" prefWidth="100.0" text="Start" />
+      <Label fx:id="numbers" layoutX="397.0" layoutY="160.0" text="Label" textFill="black">
+          <font>
+              <Font name="System Bold Italic" size="15.0" />
+          </font>
+      </Label>
+
+    </children>
+</AnchorPane>
