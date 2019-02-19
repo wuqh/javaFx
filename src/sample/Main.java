@@ -66,16 +66,17 @@ public class Main extends Application {
      */
     public void gotoAddStudentUI() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("add_student.fxml"));//界面模板
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddStudent.fxml"));//界面模板
             Parent root = loader.load();
             mainStage.setTitle("Add Student");
             AddStudentController controller = loader.getController();
             controller.setApp(this);
-            Scene scene = new Scene(root, 900, 500);
-            scene.getStylesheets().add(Main.class.getResource("main.css").toExternalForm());//界面样式,类似css
+            Scene scene = new Scene(root, 443.0, 530.0);
+//            scene.getStylesheets().add(Main.class.getResource("main.css").toExternalForm());//界面样式,类似css
             mainStage.setScene(scene);
             mainStage.show();
         } catch (Exception e) {
+        	e.printStackTrace();
             System.out.println(e.getMessage());
         }
 

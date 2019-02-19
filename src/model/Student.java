@@ -12,7 +12,7 @@ public class Student {
 	private int gpa2;
 	//private int personality;
 	//private String assignedSub = null;
-	private int finalGPA;
+	private int finalGPA = -1;
 	private int finalPersonality;
 	
 	public Student() {
