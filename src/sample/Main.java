@@ -31,26 +31,26 @@ public class Main extends Application {
         mainStage.setResizable(false);
      
         //设置窗口的图标.
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));//界面模板
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("startPage.fxml"));//界面模板
         Parent root = loader.load();
         primaryStage.setTitle("Welcome");
         Controller controller = loader.getController();
         controller.setApp(this);
         Scene scene = new Scene(root, 700, 460);
-        scene.getStylesheets().add(Main.class.getResource("main.css").toExternalForm());//界面样式,类似css
+       // scene.getStylesheets().add(Main.class.getResource("main.css").toExternalForm());//界面样式,类似css
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 
     public void gotoMainUI() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("startPage.fxml"));
             Parent root = loader.load();
             mainStage.setTitle("Welcome");
             Controller controller = loader.getController();
             controller.setApp(this);
             Scene scene = new Scene(root, 700, 460);
-            scene.getStylesheets().add(Main.class.getResource("main.css").toExternalForm());
+           // scene.getStylesheets().add(Main.class.getResource("main.css").toExternalForm());
             mainStage.setScene(scene);
             mainStage.show();
         } catch (Exception e) {
