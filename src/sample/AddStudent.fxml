@@ -4,19 +4,19 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane  prefHeight="530.0" prefWidth="443.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AddStudentController">
+<AnchorPane prefHeight="530.0" prefWidth="443.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AddStudentController">
    <children>
       <Label id="labelName" layoutX="14.0" layoutY="19.0" text="Name:" />
-      <TextField id="textName" layoutX="64.0" layoutY="14.0" />
+      <TextField fx:id="textName" layoutX="64.0" layoutY="14.0" />
       <Label id="labelGender" layoutX="14.0" layoutY="62.0" text="Gender:" />
-      <RadioButton id="rbtnFemale" layoutX="71.0" layoutY="62.0" mnemonicParsing="false" text="Female">
+      <RadioButton fx:id="rbtnFemale" layoutX="71.0" layoutY="62.0" mnemonicParsing="false" text="Female">
       	<toggleGroup>
                <ToggleGroup fx:id="genderGroup" />
             </toggleGroup>
       </RadioButton>
-      <RadioButton id="rbtnMale" layoutX="153.0" layoutY="62.0" mnemonicParsing="false" text="Male" toggleGroup="$genderGroup" />
+      <RadioButton fx:id="rbtnMale" layoutX="153.0" layoutY="62.0" mnemonicParsing="false" text="Male" toggleGroup="$genderGroup" />
       <Label id="labelSub1" layoutX="14.0" layoutY="104.0" text="1st Subject:" />
-      <RadioButton id="rbtnSubP1" layoutX="100.0" layoutY="104.0" mnemonicParsing="false" text="Physics">
+      <RadioButton fx:id="rbtnSubP1" layoutX="100.0" layoutY="104.0" mnemonicParsing="false" text="Physics">
       	<toggleGroup>
                <ToggleGroup fx:id="sub1Group" />
             </toggleGroup>
@@ -25,7 +25,7 @@
       <RadioButton fx:id="rbtnSubB1" layoutX="288.0" layoutY="104.0" mnemonicParsing="false" text="Biology" toggleGroup="$sub1Group" />
       <RadioButton fx:id="rbtnSubCS1" layoutX="378.0" layoutY="104.0" mnemonicParsing="false" text="CS" toggleGroup="$sub1Group" />
       <Label id="labelSub2" layoutX="14.0" layoutY="144.0" text="2nd Subject:" />
-      <RadioButton id="rbtnSubP2" layoutX="100.0" layoutY="144.0" mnemonicParsing="false" text="Physics">
+      <RadioButton fx:id="rbtnSubP2" layoutX="100.0" layoutY="144.0" mnemonicParsing="false" text="Physics">
       	<toggleGroup>
                <ToggleGroup fx:id="sub2Group" />
             </toggleGroup>
@@ -35,19 +35,19 @@
       <RadioButton fx:id="rbtnSubCS2" layoutX="378.0" layoutY="144.0" mnemonicParsing="false" text="CS" toggleGroup="$sub2Group" />
       <RadioButton fx:id="rbtnNone" layoutX="100.0" layoutY="177.0" mnemonicParsing="false" text="None" toggleGroup="$sub2Group" />
       <Label id="labelGPA1" layoutX="14.0" layoutY="220.0" text="1st Subject's GPA:" />
-      <Slider fx:id="sliderGPA1" showTickLabels="true" layoutX="152.0" layoutY="221.0" prefHeight="16.0" prefWidth="208.0" />
-      <Slider fx:id="sliderGPA2" showTickLabels="true" layoutX="152.0" layoutY="258.0" prefHeight="16.0" prefWidth="208.0" />
+      <Slider fx:id="sliderGPA1" layoutX="152.0" layoutY="221.0" prefHeight="16.0" prefWidth="208.0" showTickLabels="true" />
+      <Slider fx:id="sliderGPA2" layoutX="152.0" layoutY="258.0" prefHeight="16.0" prefWidth="208.0" showTickLabels="true" />
       <Label id="labelGPA2" layoutX="14.0" layoutY="257.0" text="2nd Subject's GPA:" />
       <Label id="labelQ1" layoutX="14.0" layoutY="293.0" text="How talkative is the student?" />
-      <Slider fx:id="sliderQ1" showTickLabels="true"  showTickMarks="true" layoutX="133.0" layoutY="323.0" prefHeight="16.0" prefWidth="178.0" />
-      <Slider fx:id="sliderQ2" showTickLabels="true"  showTickMarks="true" layoutX="133.0" layoutY="389.0" prefHeight="16.0" prefWidth="178.0" />
+      <Slider fx:id="sliderQ1" layoutX="133.0" layoutY="323.0" majorTickUnit="5.0" max="20.0" prefHeight="16.0" prefWidth="178.0" showTickLabels="true" />
+      <Slider fx:id="sliderQ2" layoutX="133.0" layoutY="389.0" majorTickUnit="5.0" max="20.0" prefHeight="16.0" prefWidth="178.0" showTickLabels="true" />
       <Label id="labelQ2" layoutX="14.0" layoutY="352.0" prefHeight="37.0" prefWidth="297.0" text="How often does the student contribute to class discussions?" wrapText="true" />
       <Label id="labelQ3" layoutX="14.0" layoutY="417.0" text="How often does the student laugh?" />
-      <Slider fx:id="sliderQ3" layoutX="133.0" layoutY="443.0" prefHeight="16.0" prefWidth="178.0" />
+      <Slider fx:id="sliderQ3" layoutX="133.0" layoutY="443.0" majorTickUnit="5.0" max="20.0" prefHeight="16.0" prefWidth="178.0" showTickLabels="true" />
       <TextField fx:id="textGPA1" layoutX="379.0" layoutY="215.0" prefHeight="27.0" prefWidth="40.0" />
       <TextField fx:id="textGPA2" layoutX="379.0" layoutY="252.0" prefHeight="27.0" prefWidth="40.0" />
-      <Button fx:id="btnOK" layoutX="272.0" layoutY="483.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="67.0" text="OK" />
-      <Button fx:id="btnCancel" layoutX="358.0" layoutY="483.0" mnemonicParsing="false" text="Cancel" />
+      <Button fx:id="btnOK" layoutX="272.0" layoutY="483.0" mnemonicParsing="false" onAction="#OnOk" prefHeight="27.0" prefWidth="67.0" text="OK" />
+      <Button fx:id="btnCancel" layoutX="358.0" layoutY="483.0" mnemonicParsing="false" onAction="#OnCancel" text="Cancel" />
       <TextField fx:id="textQ1" layoutX="379.0" layoutY="317.0" prefHeight="27.0" prefWidth="40.0" />
       <TextField fx:id="textQ2" layoutX="379.0" layoutY="384.0" prefHeight="27.0" prefWidth="40.0" />
       <TextField fx:id="textQ3" layoutX="379.0" layoutY="438.0" prefHeight="27.0" prefWidth="40.0" />

@@ -13,6 +13,10 @@ import java.util.Map;
 public class StoreUtils {
 	
 	public static Integer index = 0;
-
+	public static Integer keyMinPlan1 = new Integer(-1);
+	public static Integer keyMinPlan2 = new Integer(-1);
+	public static Integer keyMinPlan3 = new Integer(-1);
+	public static Map<Integer, Integer[][]> plans = new HashMap<Integer, Integer[][]>();
     public static Map<Integer, Student> students = new HashMap<Integer, Student>();
+    public static boolean stop = false;
 }

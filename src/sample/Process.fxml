@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="255.0" prefWidth="408.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ProcessController">
+   <children>
+      <ProgressBar fx:id="process" layoutX="66.0" layoutY="94.0" prefHeight="34.0" prefWidth="276.0" progress="0.0" />
+      <Button layoutX="181.0" layoutY="170.0" mnemonicParsing="false" onAction="#onStop" text="Stop" />
+      <Label fx:id="labelProcess" layoutX="145.0" layoutY="42.0" text="Processing...">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="percentage" layoutX="349.0" layoutY="102.0" text="Label">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

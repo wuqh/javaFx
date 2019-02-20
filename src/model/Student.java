@@ -2,6 +2,9 @@ package model;
 
 public class Student {
 
+	private int index;
+	
+
 	private String name;
 	private String gender;
 	private String subject1;
@@ -14,6 +17,8 @@ public class Student {
 	//private String assignedSub = null;
 	private int finalGPA = -1;
 	private int finalPersonality;
+	
+	
 	
 	public Student() {
 		
@@ -32,6 +37,16 @@ public class Student {
 		finalGPA = 0;
 		finalPersonality = 0;
 	}
+	
+	public int getIndex() {
+		return index;
+	}
+
+	public void setIndex(int index) {
+		this.index = index;
+	}
+	
+	
 	
 	public String getName() {
 		return name;
@@ -136,4 +151,23 @@ public class Student {
 	public void setFinalPersonality(int personality) {
 		finalPersonality = personality;
 	}
+
+	public int getGpa1() {
+		return gpa1;
+	}
+
+	public void setGpa1(int gpa1) {
+		this.gpa1 = gpa1;
+	}
+
+	public int getGpa2() {
+		return gpa2;
+	}
+
+	public void setGpa2(int gpa2) {
+		this.gpa2 = gpa2;
+	}
+	
+	
+	
 }
