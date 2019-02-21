@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ResultController">
+   <children>
+      <TableView fx:id="table1" layoutX="44.0" layoutY="28.0" prefHeight="200.0" prefWidth="539.0">
+         <columns>
+            <TableColumn fx:id="t1col1" prefWidth="75.0" text="Group" />
+            <TableColumn fx:id="t1col2" prefWidth="75.0" text="name" />
+            <TableColumn fx:id="t1col3" prefWidth="75.0" text="index" />
+            <TableColumn fx:id="t1col4" prefWidth="75.0" text="index" />
+            <TableColumn fx:id="t1col5" prefWidth="75.0" text="index" />
+            <TableColumn fx:id="t1col6" prefWidth="75.0" text="index" />
+            <TableColumn fx:id="t1col7" prefWidth="75.0" text="index" />
+         </columns>
+      </TableView>
+      <TableView fx:id="table2" layoutX="44.0" layoutY="249.0" prefHeight="200.0" prefWidth="539.0">
+      <columns>
+            <TableColumn fx:id="t2col1" prefWidth="75.0" text="Group" />
+            <TableColumn fx:id="t2col2" prefWidth="75.0" text="name" />
+            <TableColumn fx:id="t2col3" prefWidth="75.0" text="index" />
+            <TableColumn fx:id="t2col4" prefWidth="75.0" text="index" />
+            <TableColumn fx:id="t2col5" prefWidth="75.0" text="index" />
+            <TableColumn fx:id="t2col6" prefWidth="75.0" text="index" />
+            <TableColumn fx:id="t2col7" prefWidth="75.0" text="index" />
+         </columns>
+         </TableView>
+      <TableView fx:id="table3" layoutX="44.0" layoutY="487.0" prefHeight="200.0" prefWidth="545.0">
+       <columns>
+            <TableColumn fx:id="t3col1" prefWidth="75.0" text="Group" />
+            <TableColumn fx:id="t3col2" prefWidth="75.0" text="name" />
+            <TableColumn fx:id="t3col3" prefWidth="75.0" text="index" />
+            <TableColumn fx:id="t3col4" prefWidth="75.0" text="index" />
+            <TableColumn fx:id="t3col5" prefWidth="75.0" text="index" />
+            <TableColumn fx:id="t3col6" prefWidth="75.0" text="index" />
+            <TableColumn fx:id="t3col7" prefWidth="75.0" text="index" />
+         </columns>
+         </TableView>
+   </children>
+</AnchorPane>

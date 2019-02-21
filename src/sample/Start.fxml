@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="297.0" prefWidth="422.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <Label layoutX="60.0" layoutY="53.0" text="Group 4 Grouping Tool" textFill="black">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="114.0" layoutY="117.0" text="Number of Students:" textFill="black">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="studentNum" layoutX="288.0" layoutY="117.0" text="Label" textFill="black">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="68.0" layoutY="198.0" text="Press to Enter Students" textFill="black"/>
+      <Button fx:id="btnAdd" layoutX="87.0" layoutY="230.0" mnemonicParsing="false" onAction="#onAdd" text="Add Student" />
+      <Button fx:id="btnStart" layoutX="282.0" layoutY="230.0" mnemonicParsing="false" onAction="#onStart" text="Start" />
+   </children>
+</AnchorPane>
