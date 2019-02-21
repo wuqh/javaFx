@@ -20,5 +20,6 @@
          </font>
       </Label>
       <Label fx:id="solutionNum" layoutX="121.0" layoutY="144.0" text="Has now filtered n solutions" />
+      <Label layoutX="255.0" layoutY="19.0" text="Time Remaining: xx:xx" />
    </children>
 </Pane>
