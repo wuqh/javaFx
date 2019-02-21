@@ -17,6 +17,8 @@ public class TableResult extends Student{
 	private String col6;
 	
 	private String col7;
+	
+	private String col8;
 
 	public String getCol1() {
 		return col1;
@@ -74,7 +76,13 @@ public class TableResult extends Student{
 		this.col7 = col7;
 	}
 	
-	
+	public String getCol8() {
+		return col8;
+	}
+
+	public void setCol8(String col8) {
+		this.col8 = col8;
+	}
 	
 
 }

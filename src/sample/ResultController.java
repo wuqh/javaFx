@@ -4,9 +4,10 @@ import java.net.URL;
 
 import java.util.ResourceBundle;
 
-
+import db.StoreUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -66,6 +67,9 @@ public class ResultController implements Initializable {
 	@FXML
 	TableColumn<Student,String> t3col7;
 	
+	@FXML
+	private Button btnExport;
+	
 	private Main myApp;
 	
 	
@@ -78,28 +82,95 @@ public class ResultController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		TableResult s1;
-		for(int i=0;i<100;i++) {
+		int groupCount = 0;
+		if(StoreUtils.students.size() / 4 < 1) {
+			groupCount = 1;
+		}else {
+			if(StoreUtils.students.size() == 6) {
+				groupCount = 6;
+			}else if(StoreUtils.students.size() % 4 == 3) {
+				groupCount = StoreUtils.students.size() / 4 + 1;
+			}else {
+				groupCount = StoreUtils.students.size() / 4;
+			}
+		}
+		
+		for(int i = 0; i < groupCount; i++) {
 			s1 = new TableResult();
-			s1.setCol1(i+"");
-			s1.setCol2("name");
-			s1.setCol3("col3");
+			s1.setCol1((i + 1) + "");
+			s1.setCol2(StoreUtils.students.get(StoreUtils.plans.get(StoreUtils.keyMinPlan1)[i][0]).getName());
+			if(StoreUtils.plans.get(StoreUtils.keyMinPlan1)[i][1] != null) {
+				s1.setCol3(StoreUtils.students.get(StoreUtils.plans.get(StoreUtils.keyMinPlan1)[i][1]).getName());
+			}
+			if(StoreUtils.plans.get(StoreUtils.keyMinPlan1)[i][2] != null) {
+				s1.setCol4(StoreUtils.students.get(StoreUtils.plans.get(StoreUtils.keyMinPlan1)[i][2]).getName());
+			}
+			if(StoreUtils.plans.get(StoreUtils.keyMinPlan1)[i][3] != null) {
+				s1.setCol5(StoreUtils.students.get(StoreUtils.plans.get(StoreUtils.keyMinPlan1)[i][3]).getName());
+			}
+			if(StoreUtils.plans.get(StoreUtils.keyMinPlan1)[i][4] != null) {
+				s1.setCol6(StoreUtils.students.get(StoreUtils.plans.get(StoreUtils.keyMinPlan1)[i][4]).getName());
+			}
+			if(StoreUtils.plans.get(StoreUtils.keyMinPlan1)[i][5] != null) {
+				s1.setCol7(StoreUtils.plans.get(StoreUtils.keyMinPlan1)[i][5].toString());
+			}
+			if(StoreUtils.plans.get(StoreUtils.keyMinPlan1)[i][6] != null) {
+				s1.setCol8(StoreUtils.plans.get(StoreUtils.keyMinPlan1)[i][6].toString());
+			}
+			
 			table1.getItems().add(s1);
 
 		}
 		
-		for(int i=0;i<100;i++) {
+		for(int i = 0; i < groupCount; i++) {
 			s1 = new TableResult();
-			s1.setCol1(i+"");
-			s1.setCol2("name");
-			s1.setCol3("col3");		
+			s1.setCol1((i + 1) + "");
+			s1.setCol2(StoreUtils.students.get(StoreUtils.plans.get(StoreUtils.keyMinPlan2)[i][0]).getName());
+			if(StoreUtils.plans.get(StoreUtils.keyMinPlan2)[i][1] != null) {
+				s1.setCol3(StoreUtils.students.get(StoreUtils.plans.get(StoreUtils.keyMinPlan2)[i][1]).getName());
+			}
+			if(StoreUtils.plans.get(StoreUtils.keyMinPlan2)[i][2] != null) {
+				s1.setCol4(StoreUtils.students.get(StoreUtils.plans.get(StoreUtils.keyMinPlan2)[i][2]).getName());
+			}
+			if(StoreUtils.plans.get(StoreUtils.keyMinPlan2)[i][3] != null) {
+				s1.setCol5(StoreUtils.students.get(StoreUtils.plans.get(StoreUtils.keyMinPlan2)[i][3]).getName());
+			}
+			if(StoreUtils.plans.get(StoreUtils.keyMinPlan2)[i][4] != null) {
+				s1.setCol6(StoreUtils.students.get(StoreUtils.plans.get(StoreUtils.keyMinPlan2)[i][4]).getName());
+			}
+			if(StoreUtils.plans.get(StoreUtils.keyMinPlan2)[i][5] != null) {
+				s1.setCol7(StoreUtils.plans.get(StoreUtils.keyMinPlan2)[i][5].toString());
+			}
+			if(StoreUtils.plans.get(StoreUtils.keyMinPlan2)[i][6] != null) {
+				s1.setCol8(StoreUtils.plans.get(StoreUtils.keyMinPlan2)[i][6].toString());
+			}
+			
 			table2.getItems().add(s1);
 		}
 		
-		for(int i=0;i<100;i++) {
+		for(int i = 0; i < groupCount; i++) {
 			s1 = new TableResult();
-			s1.setCol1(i+"");
-			s1.setCol2("name");
-			s1.setCol3("col3");
+			s1.setCol1((i + 1) + "");
+			s1.setCol2(StoreUtils.students.get(StoreUtils.plans.get(StoreUtils.keyMinPlan3)[i][0]).getName());
+			if(StoreUtils.plans.get(StoreUtils.keyMinPlan3)[i][1] != null) {
+				s1.setCol3(StoreUtils.students.get(StoreUtils.plans.get(StoreUtils.keyMinPlan3)[i][1]).getName());
+			}
+			if(StoreUtils.plans.get(StoreUtils.keyMinPlan3)[i][2] != null) {
+				s1.setCol4(StoreUtils.students.get(StoreUtils.plans.get(StoreUtils.keyMinPlan3)[i][2]).getName());
+			}
+			if(StoreUtils.plans.get(StoreUtils.keyMinPlan3)[i][3] != null) {
+				s1.setCol5(StoreUtils.students.get(StoreUtils.plans.get(StoreUtils.keyMinPlan3)[i][3]).getName());
+			}
+			if(StoreUtils.plans.get(StoreUtils.keyMinPlan3)[i][4] != null) {
+				s1.setCol6(StoreUtils.students.get(StoreUtils.plans.get(StoreUtils.keyMinPlan3)[i][4]).getName());
+			}
+			if(StoreUtils.plans.get(StoreUtils.keyMinPlan3)[i][5] != null) {
+				s1.setCol7(StoreUtils.plans.get(StoreUtils.keyMinPlan3)[i][5].toString());
+			}
+			if(StoreUtils.plans.get(StoreUtils.keyMinPlan3)[i][6] != null) {
+				s1.setCol8(StoreUtils.plans.get(StoreUtils.keyMinPlan3)[i][6].toString());
+			}
+			
 			table3.getItems().add(s1);
 		}
 		

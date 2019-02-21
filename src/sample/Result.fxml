@@ -1,43 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ResultController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="684.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ResultController">
    <children>
-      <TableView fx:id="table1" layoutX="44.0" layoutY="28.0" prefHeight="200.0" prefWidth="539.0">
+      <TableView fx:id="table1" layoutX="25.0" layoutY="77.0" prefHeight="170.0" prefWidth="600.0">
          <columns>
             <TableColumn fx:id="t1col1" prefWidth="75.0" text="Group" />
-            <TableColumn fx:id="t1col2" prefWidth="75.0" text="name" />
-            <TableColumn fx:id="t1col3" prefWidth="75.0" text="index" />
-            <TableColumn fx:id="t1col4" prefWidth="75.0" text="index" />
-            <TableColumn fx:id="t1col5" prefWidth="75.0" text="index" />
-            <TableColumn fx:id="t1col6" prefWidth="75.0" text="index" />
-            <TableColumn fx:id="t1col7" prefWidth="75.0" text="index" />
+            <TableColumn fx:id="t1col2" prefWidth="75.0" text="Physics" />
+            <TableColumn fx:id="t1col3" prefWidth="75.0" text="Chemistry" />
+            <TableColumn fx:id="t1col4" prefWidth="75.0" text="Biology" />
+            <TableColumn fx:id="t1col5" prefWidth="75.0" text="CS" />
+            <TableColumn fx:id="t1col6" prefWidth="75.0" text="" />
+            <TableColumn fx:id="t1col7" prefWidth="75.0" text="GPA" />
+            <TableColumn fx:id="t1col8" prefWidth="75.0" text="Personality" />
          </columns>
       </TableView>
-      <TableView fx:id="table2" layoutX="44.0" layoutY="249.0" prefHeight="200.0" prefWidth="539.0">
+      <TableView fx:id="table2" layoutX="25.0" layoutY="282.0" prefHeight="170.0" prefWidth="600.0">
       <columns>
             <TableColumn fx:id="t2col1" prefWidth="75.0" text="Group" />
-            <TableColumn fx:id="t2col2" prefWidth="75.0" text="name" />
-            <TableColumn fx:id="t2col3" prefWidth="75.0" text="index" />
-            <TableColumn fx:id="t2col4" prefWidth="75.0" text="index" />
-            <TableColumn fx:id="t2col5" prefWidth="75.0" text="index" />
-            <TableColumn fx:id="t2col6" prefWidth="75.0" text="index" />
-            <TableColumn fx:id="t2col7" prefWidth="75.0" text="index" />
+            <TableColumn fx:id="t2col2" prefWidth="75.0" text="Physics" />
+            <TableColumn fx:id="t2col3" prefWidth="75.0" text="Chemistry" />
+            <TableColumn fx:id="t2col4" prefWidth="75.0" text="Biology" />
+            <TableColumn fx:id="t2col5" prefWidth="75.0" text="CS" />
+            <TableColumn fx:id="t2col6" prefWidth="75.0" text="" />
+            <TableColumn fx:id="t2col7" prefWidth="75.0" text="GPA" />
+            <TableColumn fx:id="t2col8" prefWidth="75.0" text="Personality" />
          </columns>
          </TableView>
-      <TableView fx:id="table3" layoutX="44.0" layoutY="487.0" prefHeight="200.0" prefWidth="545.0">
+      <TableView fx:id="table3" layoutX="25.0" layoutY="487.0" prefHeight="170.0" prefWidth="600.0">
        <columns>
             <TableColumn fx:id="t3col1" prefWidth="75.0" text="Group" />
-            <TableColumn fx:id="t3col2" prefWidth="75.0" text="name" />
-            <TableColumn fx:id="t3col3" prefWidth="75.0" text="index" />
-            <TableColumn fx:id="t3col4" prefWidth="75.0" text="index" />
-            <TableColumn fx:id="t3col5" prefWidth="75.0" text="index" />
-            <TableColumn fx:id="t3col6" prefWidth="75.0" text="index" />
-            <TableColumn fx:id="t3col7" prefWidth="75.0" text="index" />
+            <TableColumn fx:id="t3col2" prefWidth="75.0" text="Physics" />
+            <TableColumn fx:id="t3col3" prefWidth="75.0" text="Chemistry" />
+            <TableColumn fx:id="t3col4" prefWidth="75.0" text="Biology" />
+            <TableColumn fx:id="t3col5" prefWidth="75.0" text="CS" />
+            <TableColumn fx:id="t3col6" prefWidth="75.0" text="" />
+            <TableColumn fx:id="t3col7" prefWidth="75.0" text="GPA" />
+            <TableColumn fx:id="t3col8" prefWidth="75.0" text="Personality" />
          </columns>
          </TableView>
+      <Label layoutX="290.0" layoutY="17.0" text="Results">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="50.0" text="Balanced (GPA 60%, Personality 40%):">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="255.0" text="Academics-focused (GPA 85%, Personality 15%):">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="460.0" text="Personality-focused (GPA 35%, Personality 65%):">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnExport" layoutX="516.0" layoutY="34.0" mnemonicParsing="false" text="Export">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

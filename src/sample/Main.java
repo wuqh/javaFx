@@ -114,7 +114,7 @@ public class Main extends Application {
             mainStage.setTitle("Add Student");
             ResultController controller = loader.getController();
             controller.setApp(this);
-            Scene scene = new Scene(root, 600.0, 678.0);
+            Scene scene = new Scene(root, 684.0, 650.0);
 //            scene.getStylesheets().add(Main.class.getResource("main.css").toExternalForm());//界面样式,类似css
             mainStage.setScene(scene);
             mainStage.show();

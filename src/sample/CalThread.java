@@ -75,6 +75,8 @@ public class CalThread implements Runnable{
     		
     		stop = StoreUtils.stop;
     		
+    		groupNum = studentNum / 4;
+    		
     		//Copy all elements from Map "students" to a temporary Map
     		for(int i = 0; i < studentNum; i++) {
         		studentsTemp.put(new Integer(i), StoreUtils.students.get(new Integer(i)));
@@ -86,7 +88,10 @@ public class CalThread implements Runnable{
     		/*Randomly copy extra students to a temporary Map and remove from
     		"studentsTemp", so number of students is currently a multiple of 4*/
     		for(int i = 0; i < remainder; i++) {
-    			Integer keyRemain = new Integer(random.nextInt(studentNum));
+    			Integer[] keys = studentsTemp.keySet().toArray(new Integer[0]);
+    			Integer keyRemain = keys[random.nextInt(keys.length)];
+    			
+//    			Integer keyRemain = new Integer(random.nextInt(studentNum));
     			remainedStudents.put(keyRemain, studentsTemp.get(keyRemain));
     			studentsTemp.remove(keyRemain);
     		}
@@ -319,7 +324,7 @@ public class CalThread implements Runnable{
         				groupGPASum = groupGPASum + StoreUtils.students.get(plan[i][j]).getFinalGPA();
         			}
     				groupGPAAverage = groupGPASum / 4;
-    			}else if(plan[i][4] == null && plan[i][3] == null) {
+    			}else if(plan[i][4] == null && plan[i][3] == null && plan[i][2] != null) {
     				for(int j = 0; j < 3; j++) {
         				groupGPASum = groupGPASum + StoreUtils.students.get(plan[i][j]).getFinalGPA();
         			}
@@ -329,12 +334,12 @@ public class CalThread implements Runnable{
         				groupGPASum = groupGPASum + StoreUtils.students.get(plan[i][j]).getFinalGPA();
         			}
     				groupGPAAverage = groupGPASum / 5;
-    			}else if(plan[i][2] == null) {
+    			}else if(plan[i][2] == null && plan[i][1] != null) {
     				for(int j = 0; j < 2; j++) {
         				groupGPASum = groupGPASum + StoreUtils.students.get(plan[i][j]).getFinalGPA();
         			}
     				groupGPAAverage = groupGPASum / 2;
-    			}else if(plan[i][1] == null) {
+    			}else if(plan[i][1] == null && plan[i][0] != null) {
     				groupGPAAverage = StoreUtils.students.get(plan[i][0]).getFinalGPA();
     			}
     			
@@ -351,7 +356,7 @@ public class CalThread implements Runnable{
         				groupPersSum = groupPersSum + StoreUtils.students.get(plan[i][j]).getFinalPersonality();
         			}
     				groupPersAverage = groupPersSum / 4;
-    			}else if(plan[i][4] == null && plan[i][3] == null) {
+    			}else if(plan[i][4] == null && plan[i][3] == null && plan[i][2] != null) {
     				for(int j = 0; j < 3; j++) {
         				groupPersSum = groupPersSum + StoreUtils.students.get(plan[i][j]).getFinalPersonality();
         			}
@@ -361,16 +366,54 @@ public class CalThread implements Runnable{
         				groupPersSum = groupPersSum + StoreUtils.students.get(plan[i][j]).getFinalPersonality();
         			}
     				groupPersAverage = groupPersSum / 5;
-    			}else if(plan[i][2] == null) {
+    			}else if(plan[i][2] == null && plan[i][1] != null) {
     				for(int j = 0; j < 2; j++) {
         				groupPersSum = groupPersSum + StoreUtils.students.get(plan[i][j]).getFinalPersonality();
         			}
     				groupPersAverage = groupPersSum / 2;
-    			}else if(plan[i][1] == null) {
+    			}else if(plan[i][1] == null && plan[i][0] != null) {
     				groupPersAverage = StoreUtils.students.get(plan[i][0]).getFinalPersonality();
     			}
     			
     			plan[i][6] = new Integer(groupPersAverage);
+    		}
+    		
+    		int[] femaleNums = new int[groupNum];
+    		
+    		//Calculate and store the number of female students in each group
+    		for(int i = 0; i < groupNum; i++) {
+    			int groupFemaleNum = 0;
+    			if(plan[i][4] == null && plan[i][3] != null) {
+    				for(int j = 0; j < 4; j++) {
+    					if(StoreUtils.students.get(plan[i][j]).getGender().equals("female")) {
+    						groupFemaleNum = groupFemaleNum + 1;
+    					}
+        			}
+    			}else if(plan[i][4] == null && plan[i][3] == null && plan[i][2] != null) {
+    				for(int j = 0; j < 3; j++) {
+    					if(StoreUtils.students.get(plan[i][j]).getGender().equals("female")) {
+    						groupFemaleNum = groupFemaleNum + 1;
+    					}
+        			}
+    			}else if(plan[i][4] != null) {
+    				for(int j = 0; j < 5; j++) {
+    					if(StoreUtils.students.get(plan[i][j]).getGender().equals("female")) {
+    						groupFemaleNum = groupFemaleNum + 1;
+    					}
+        			}
+    			}else if(plan[i][2] == null && plan[i][1] != null) {
+    				for(int j = 0; j < 2; j++) {
+    					if(StoreUtils.students.get(plan[i][j]).getGender().equals("female")) {
+    						groupFemaleNum = groupFemaleNum + 1;
+    					}
+        			}
+    			}else if(plan[i][1] == null && plan[i][0] != null) {
+    				if(StoreUtils.students.get(plan[i][0]).getGender().equals("female")) {
+    					groupFemaleNum = 1;
+    				}
+    			}
+    			
+    			femaleNums[i] = groupFemaleNum;
     		}
     		
     		//Calculate standard deviation of the groups' GPAs
@@ -397,20 +440,37 @@ public class CalThread implements Runnable{
     		double totalPersDeviation = 0;
     		int persTemp = 0;
     		for(int i = 0; i < groupNum; i++) {
-    			persTemp = plan[i][5];
+    			persTemp = plan[i][6];
                 totalPersSum = totalPersSum + persTemp;
             }
     		totalPersAverage = totalPersSum / groupNum;
     		for(int i = 0; i < groupNum; i++) {
-    			persTemp = plan[i][5];
+    			persTemp = plan[i][6];
                 totalPersDeviation = totalPersDeviation + Math.pow((persTemp - totalPersAverage), 2);
             }
     		totalPersSD = Math.sqrt(totalPersDeviation / groupNum);
     		
+    		//Calculate standard deviation of the groups' numbers of female students
+    		double totalFemaleSD = 0;
+    		int totalFemaleSum = 0;
+    		double totalFemaleAverage = 0;
+    		double totalFemaleDeviation = 0;
+    		int femaleTemp = 0;
+    		for(int i = 0; i < groupNum; i++) {
+    			femaleTemp = femaleNums[i];
+                totalFemaleSum = totalFemaleSum + femaleTemp;
+            }
+    		totalFemaleAverage = totalFemaleSum / groupNum;
+    		for(int i = 0; i < groupNum; i++) {
+    			femaleTemp = femaleNums[i];
+                totalFemaleDeviation = totalFemaleDeviation + Math.pow((femaleTemp - totalFemaleAverage), 2);
+            }
+    		totalFemaleSD = Math.sqrt(totalFemaleDeviation / groupNum);
+    		
     		//Calculate 3 overall standard deviations according to 3 weightings
-    		sd1 = (totalGPASD * 0.6) + (totalPersSD * 0.4);
-    		sd2 = (totalGPASD * 0.85) + (totalPersSD * 0.15);
-    		sd3 = (totalGPASD * 0.35) + (totalPersSD * 0.65);
+    		sd1 = (totalGPASD * 0.6) + (totalPersSD * 0.4) + (totalFemaleSD * 0.1);
+    		sd2 = (totalGPASD * 0.85) + (totalPersSD * 0.15) + (totalFemaleSD * 0.1);
+    		sd3 = (totalGPASD * 0.35) + (totalPersSD * 0.65) + (totalFemaleSD * 0.1);
     		
     		//Check if this generated plan is the first plan
     		if(StoreUtils.keyMinPlan1.intValue() == -1 || StoreUtils.keyMinPlan2.intValue() == -1 || StoreUtils.keyMinPlan3.intValue() == -1) {
