@@ -63,7 +63,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button fx:id="btnExport" layoutX="516.0" layoutY="34.0" mnemonicParsing="false" text="Export">
+      <Button fx:id="btnExport" layoutX="516.0" layoutY="34.0" mnemonicParsing="false" onAction="#export" text="Export">
          <font>
             <Font size="16.0" />
          </font>

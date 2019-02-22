@@ -1,23 +1,26 @@
 package model;
 
+import cn.afterturn.easypoi.excel.annotation.Excel;
+
 public class TableResult extends Student{
 	
 	//add you attr
-	
+	@Excel(name = "Group",width=15,type =1,orderNum ="0",isWrap=false)
 	private String col1;
-	
+
+	@Excel(name = "Physics",width=15,type =1,orderNum ="0",isWrap=false)
 	private String col2;
-	
+	@Excel(name = "Chemistry",width=15,type =1,orderNum ="0",isWrap=false)
 	private String col3;
-	
+	@Excel(name = "Biology",width=15,type =1,orderNum ="0",isWrap=false)
 	private String col4;
-	
+	@Excel(name = "CS",width=15,type =1,orderNum ="0",isWrap=false)
 	private String col5;
-	
+	@Excel(name = "GPA",width=15,type =1,orderNum ="0",isWrap=false)
 	private String col6;
-	
+	@Excel(name = "Personality",width=15,type =1,orderNum ="0",isWrap=false)
 	private String col7;
-	
+	@Excel(name = "Group",width=15,type =1,orderNum ="0",isWrap=false)
 	private String col8;
 
 	public String getCol1() {

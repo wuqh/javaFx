@@ -1,18 +1,24 @@
 package sample;
 
+import java.io.File;
 import java.net.URL;
 
 import java.util.ResourceBundle;
 
 import db.StoreUtils;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import model.Student;
 import model.TableResult;
+import sample.excel.ExportResultUtil;
 
 public class ResultController implements Initializable {
 	@FXML
@@ -77,9 +83,42 @@ public class ResultController implements Initializable {
         this.myApp = myApp;
     }
 
+
+	@FXML
+    public void export(){
+		Stage selectFile = new Stage();
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("LaundryService");
+		fileChooser.setInitialFileName("laundryrecords.xls");
+		fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("XLS Files", "*.xls"));
+		File file = fileChooser.showSaveDialog(selectFile);
+		if(file != null){
+			ExportResultUtil.export(file.getAbsolutePath());
+		}
+	}
+
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+    	//add by wuqh begin 201902022
+		StoreUtils.tableResult1.clear();
+		StoreUtils.tableResult2.clear();
+		StoreUtils.tableResult3.clear();
+		//for export test begin
+//		TableResult tableResult=new TableResult();
+//		tableResult.setCol1("1");
+//		tableResult.setCol2("2");
+//		tableResult.setCol3("3");
+//		tableResult.setCol4("4");
+//		tableResult.setCol5("5");
+//		tableResult.setCol6("6");
+//		tableResult.setCol7("7");
+//		StoreUtils.tableResult1.add(tableResult);
+//		StoreUtils.tableResult2.add(tableResult);
+//		StoreUtils.tableResult3.add(tableResult);
+		//for export test end
+		//add by wuqh end 201902022
+
 		// TODO Auto-generated method stub
 		TableResult s1;
 		int groupCount = 0;
@@ -94,7 +133,7 @@ public class ResultController implements Initializable {
 				groupCount = StoreUtils.students.size() / 4;
 			}
 		}
-		
+
 		for(int i = 0; i < groupCount; i++) {
 			s1 = new TableResult();
 			s1.setCol1((i + 1) + "");
@@ -117,11 +156,12 @@ public class ResultController implements Initializable {
 			if(StoreUtils.plans.get(StoreUtils.keyMinPlan1)[i][6] != null) {
 				s1.setCol8(StoreUtils.plans.get(StoreUtils.keyMinPlan1)[i][6].toString());
 			}
-			
+
 			table1.getItems().add(s1);
+			StoreUtils.tableResult1.add(s1);
 
 		}
-		
+
 		for(int i = 0; i < groupCount; i++) {
 			s1 = new TableResult();
 			s1.setCol1((i + 1) + "");
@@ -144,10 +184,11 @@ public class ResultController implements Initializable {
 			if(StoreUtils.plans.get(StoreUtils.keyMinPlan2)[i][6] != null) {
 				s1.setCol8(StoreUtils.plans.get(StoreUtils.keyMinPlan2)[i][6].toString());
 			}
-			
+
 			table2.getItems().add(s1);
+			StoreUtils.tableResult2.add(s1);
 		}
-		
+
 		for(int i = 0; i < groupCount; i++) {
 			s1 = new TableResult();
 			s1.setCol1((i + 1) + "");
@@ -170,8 +211,9 @@ public class ResultController implements Initializable {
 			if(StoreUtils.plans.get(StoreUtils.keyMinPlan3)[i][6] != null) {
 				s1.setCol8(StoreUtils.plans.get(StoreUtils.keyMinPlan3)[i][6].toString());
 			}
-			
+
 			table3.getItems().add(s1);
+			StoreUtils.tableResult3.add(s1);
 		}
 		
 		

@@ -1,10 +1,13 @@
 package db;
 
 import model.Student;
+import model.TableResult;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 //import java.util.ArrayList;
 //import java.util.List;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -19,4 +22,8 @@ public class StoreUtils {
 	public static Map<Integer, Integer[][]> plans = new HashMap<Integer, Integer[][]>();
     public static Map<Integer, Student> students = new HashMap<Integer, Student>();
     public static boolean stop = false;
+
+    public static List<TableResult> tableResult1=new ArrayList<>();
+	public static List<TableResult> tableResult2=new ArrayList<>();
+	public static List<TableResult> tableResult3=new ArrayList<>();
 }
