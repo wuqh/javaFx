@@ -10,6 +10,7 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Slider;
@@ -119,69 +120,127 @@ public class AddStudentController  implements Initializable{
 
     @FXML
     public void OnOk(){
-    	Student student=new Student();
-    	
-//    	String name = textName.getText();
-//    	String gender = null;
-//    	String sub1 = null;
-//    	String sub2 = null;
-    	int gpa1 = 0;
-    	int gpa2 = 0;
-    	int finalPersonality = 0;
-    	
-    	student.setName(textName.getText());
-        
-        if(genderGroup.getSelectedToggle() == rbtnFemale){
-//        	gender = "female";
-//            System.out.println("female");
-            student.setGender("female");
-        }else if(genderGroup.getSelectedToggle() == rbtnMale){
-//        	gender = "male";
-//            System.out.println("male");
-            student.setGender("male");
-        }
-        
-        if(sub1Group.getSelectedToggle() == rbtnSubP1) {
-        	student.setSubject1("physics");
-        }else if(sub1Group.getSelectedToggle() == rbtnSubC1) {
-        	student.setSubject1("chemistry");
-        }else if(sub1Group.getSelectedToggle() == rbtnSubB1) {
-        	student.setSubject1("biology");
-        }else if(sub1Group.getSelectedToggle() == rbtnSubCS1) {
-        	student.setSubject1("cs");
-        }
-        
-        if(sub2Group.getSelectedToggle() == rbtnSubP2) {
-        	student.setSubject2("physics");
-        }else if(sub2Group.getSelectedToggle() == rbtnSubC2) {
-        	student.setSubject2("chemistry");
-        }else if(sub2Group.getSelectedToggle() == rbtnSubB2) {
-        	student.setSubject2("biology");
-        }else if(sub2Group.getSelectedToggle() == rbtnSubCS2) {
-        	student.setSubject2("cs");
-        }else if(sub2Group.getSelectedToggle() == rbtnNone) {
-        	student.setSubject2("none");
-        }
-        
-        gpa1 = Double.valueOf(sliderGPA1.getValue()).intValue();
-        student.setGPA1(gpa1);
-        if(student.getSubject2().equals("none")) {
-        	gpa2 = -1;
-        }else {
-        	gpa2 = Double.valueOf(sliderGPA2.getValue()).intValue();
-        }
-        student.setGPA2(gpa2);
-        
-        finalPersonality = (Double.valueOf(sliderQ1.getValue()).intValue() + Double.valueOf(sliderQ2.getValue()).intValue() + Double.valueOf(sliderQ3.getValue()).intValue()) / 3 * 5;
-        student.setFinalPersonality(finalPersonality);
+    	if(sub2Group.getSelectedToggle() == rbtnNone) {
+    		if(textName.getText().equals("") || genderGroup.getSelectedToggle() == null || sub1Group.getSelectedToggle() == null || sliderGPA1.getValue() == 0 || sliderQ1.getValue() == 0 || sliderQ2.getValue() == 0 || sliderQ3.getValue() == 0) {
+    			Alert error = new Alert(Alert.AlertType.ERROR, "You must complete all entries");
+    			error.showAndWait();
+    		}else {
+    			Student student=new Student();
+    	    	
+//    	    	String name = textName.getText();
+//    	    	String gender = null;
+//    	    	String sub1 = null;
+//    	    	String sub2 = null;
+    	    	int gpa1 = 0;
+    	    	int gpa2 = -1;
+    	    	int finalPersonality = 0;
+    	    	
+    	    	student.setName(textName.getText());
+    	        
+    	        if(genderGroup.getSelectedToggle() == rbtnFemale){
+//    	        	gender = "female";
+//    	            System.out.println("female");
+    	            student.setGender("female");
+    	        }else if(genderGroup.getSelectedToggle() == rbtnMale){
+//    	        	gender = "male";
+//    	            System.out.println("male");
+    	            student.setGender("male");
+    	        }
+    	        
+    	        if(sub1Group.getSelectedToggle() == rbtnSubP1) {
+    	        	student.setSubject1("physics");
+    	        }else if(sub1Group.getSelectedToggle() == rbtnSubC1) {
+    	        	student.setSubject1("chemistry");
+    	        }else if(sub1Group.getSelectedToggle() == rbtnSubB1) {
+    	        	student.setSubject1("biology");
+    	        }else if(sub1Group.getSelectedToggle() == rbtnSubCS1) {
+    	        	student.setSubject1("cs");
+    	        }
+    	        
+    	        student.setSubject2("none");
+    	        
+    	        gpa1 = Double.valueOf(sliderGPA1.getValue()).intValue();
+    	        student.setGPA1(gpa1);
+    	        student.setGPA2(gpa2);
+    	        
+    	        finalPersonality = (Double.valueOf(sliderQ1.getValue()).intValue() + Double.valueOf(sliderQ2.getValue()).intValue() + Double.valueOf(sliderQ3.getValue()).intValue()) / 3 * 5;
+    	        student.setFinalPersonality(finalPersonality);
 
-//        System.out.println(sudent_name.getText());
-//        student.setName(sudent_name.getText());
-//        StoreUtils.studentList.add(student);
-       
-        StoreUtils.students.put(StoreUtils.index, student);
-        StoreUtils.index = StoreUtils.index + 1;
-        myApp.gotoMainUI();
+//    	        System.out.println(sudent_name.getText());
+//    	        student.setName(sudent_name.getText());
+//    	        StoreUtils.studentList.add(student);
+    	       
+    	        StoreUtils.students.put(StoreUtils.index, student);
+    	        StoreUtils.index = StoreUtils.index + 1;
+    	        myApp.gotoMainUI();
+    		}
+    	}else {
+    		if(textName.getText().equals("") || genderGroup.getSelectedToggle() == null || sub1Group.getSelectedToggle() == null || sub2Group.getSelectedToggle() == null || sliderGPA1.getValue() == 0 || sliderGPA2.getValue() == 0 || sliderQ1.getValue() == 0 || sliderQ2.getValue() == 0 || sliderQ3.getValue() == 0) {
+    			Alert error = new Alert(Alert.AlertType.ERROR, "You must complete all entries");
+    			error.showAndWait();
+    		}else {
+    			Student student=new Student();
+    	    	
+//    	    	String name = textName.getText();
+//    	    	String gender = null;
+//    	    	String sub1 = null;
+//    	    	String sub2 = null;
+    	    	int gpa1 = 0;
+    	    	int gpa2 = 0;
+    	    	int finalPersonality = 0;
+    	    	
+    	    	student.setName(textName.getText());
+    	        
+    	        if(genderGroup.getSelectedToggle() == rbtnFemale){
+//    	        	gender = "female";
+//    	            System.out.println("female");
+    	            student.setGender("female");
+    	        }else if(genderGroup.getSelectedToggle() == rbtnMale){
+//    	        	gender = "male";
+//    	            System.out.println("male");
+    	            student.setGender("male");
+    	        }
+    	        
+    	        if(sub1Group.getSelectedToggle() == rbtnSubP1) {
+    	        	student.setSubject1("physics");
+    	        }else if(sub1Group.getSelectedToggle() == rbtnSubC1) {
+    	        	student.setSubject1("chemistry");
+    	        }else if(sub1Group.getSelectedToggle() == rbtnSubB1) {
+    	        	student.setSubject1("biology");
+    	        }else if(sub1Group.getSelectedToggle() == rbtnSubCS1) {
+    	        	student.setSubject1("cs");
+    	        }
+    	        
+    	        if(sub2Group.getSelectedToggle() == rbtnSubP2) {
+    	        	student.setSubject2("physics");
+    	        }else if(sub2Group.getSelectedToggle() == rbtnSubC2) {
+    	        	student.setSubject2("chemistry");
+    	        }else if(sub2Group.getSelectedToggle() == rbtnSubB2) {
+    	        	student.setSubject2("biology");
+    	        }else if(sub2Group.getSelectedToggle() == rbtnSubCS2) {
+    	        	student.setSubject2("cs");
+    	        }
+//    	        	else if(sub2Group.getSelectedToggle() == rbtnNone) {
+//    	        	student.setSubject2("none");
+//    	        }
+    	        
+    	        gpa1 = Double.valueOf(sliderGPA1.getValue()).intValue();
+    	        student.setGPA1(gpa1);
+    	        gpa2 = Double.valueOf(sliderGPA2.getValue()).intValue();
+    	        student.setGPA2(gpa2);
+    	        
+    	        finalPersonality = (Double.valueOf(sliderQ1.getValue()).intValue() + Double.valueOf(sliderQ2.getValue()).intValue() + Double.valueOf(sliderQ3.getValue()).intValue()) / 3 * 5;
+    	        student.setFinalPersonality(finalPersonality);
+
+//    	        System.out.println(sudent_name.getText());
+//    	        student.setName(sudent_name.getText());
+//    	        StoreUtils.studentList.add(student);
+    	       
+    	        StoreUtils.students.put(StoreUtils.index, student);
+    	        StoreUtils.index = StoreUtils.index + 1;
+    	        myApp.gotoMainUI();
+    		}
+    	}
     }
 
     @FXML

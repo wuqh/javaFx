@@ -152,21 +152,21 @@ public class Student {
 		finalPersonality = personality;
 	}
 
-	public int getGpa1() {
-		return gpa1;
-	}
-
-	public void setGpa1(int gpa1) {
-		this.gpa1 = gpa1;
-	}
-
-	public int getGpa2() {
-		return gpa2;
-	}
-
-	public void setGpa2(int gpa2) {
-		this.gpa2 = gpa2;
-	}
+//	public int getGpa1() {
+//		return gpa1;
+//	}
+//
+//	public void setGpa1(int gpa1) {
+//		this.gpa1 = gpa1;
+//	}
+//
+//	public int getGpa2() {
+//		return gpa2;
+//	}
+//
+//	public void setGpa2(int gpa2) {
+//		this.gpa2 = gpa2;
+//	}
 	
 	
 	
